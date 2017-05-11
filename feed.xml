@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JBake</title>
+    <link>https://nathansgreen.github.io</link>
+    <atom:link href="https://nathansgreen.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <description>JBake Bootstrap Template</description>
+    <language>en-gb</language>
+    <pubDate>Wed, 10 May 2017 23:35:42 -0500</pubDate>
+    <lastBuildDate>Wed, 10 May 2017 23:35:42 -0500</lastBuildDate>
+
+    <item>
+      <title>Unit Tests as Experiments</title>
+      <link>https://nathansgreen.github.io/blog/2013/unit-tests-as-experiments.html</link>
+      <pubDate>Thu, 11 May 2017 00:00:00 -0500</pubDate>
+      <guid isPermaLink="false">blog/2013/unit-tests-as-experiments.html</guid>
+      	<description>
+	&lt;p&gt;One of the strategies I&amp;rsquo;ve been using lately is creating unit tests when I have a problem that I don&amp;rsquo;t understand fully. It&amp;rsquo;s an easy way to encode a set of assumptions (test fixture setup), try out potential ways of solving a problem, then check whether it worked (assert some expected outcome).&lt;/p&gt;
+&lt;p&gt;Since I often work without a REPL (Java 9 will change this), I need easy ways to run programs that are small and malleable. I also work with complex runtimes (magical, auto-configured Spring systems are one of many examples) and it helps to be able to simulate a complex system by setting up test fixtures that manage that complexity while providing direct access to the thing I need to test.&lt;/p&gt;
+&lt;p&gt;I find this approach is also helpful when trying to work with an unfamiliar API. Sometimes my mental model of an API&amp;rsquo;s behavior doesn&amp;rsquo;t quite match reality, and a test is usually a quick way to verify an hypothesis about what outcomes I should expect.&lt;/p&gt;
+&lt;p&gt;The BDD way of structuring tests fits this approach pretty well. Given some initial conditions, when this thing occurs, then I expect this outcome. The difference is that instead of encoding requirements, I&amp;rsquo;m encoding hypotheses.&lt;/p&gt;
+	</description>
+    </item>
+    <item>
+      <title>Unit Tests as Experiments</title>
+      <link>https://nathansgreen.github.io/blog/2017/unit-tests-as-experiments.html</link>
+      <pubDate>Thu, 11 May 2017 00:00:00 -0500</pubDate>
+      <guid isPermaLink="false">blog/2017/unit-tests-as-experiments.html</guid>
+      	<description>
+	&lt;p&gt;One of the strategies I&amp;rsquo;ve been using lately is creating unit tests when I have a problem that I don&amp;rsquo;t understand fully. It&amp;rsquo;s an easy way to encode a set of assumptions (test fixture setup), try out potential ways of solving a problem, then check whether it worked (assert some expected outcome).&lt;/p&gt;
+&lt;p&gt;Since I often work without a REPL (Java 9 will change this), I need easy ways to run programs that are small and malleable. I also work with complex runtimes (magical, auto-configured Spring systems are one of many examples) and it helps to be able to simulate a complex system by setting up test fixtures that manage that complexity while providing direct access to the thing I need to test.&lt;/p&gt;
+&lt;p&gt;I find this approach is also helpful when trying to work with an unfamiliar API. Sometimes my mental model of an API&amp;rsquo;s behavior doesn&amp;rsquo;t quite match reality, and a test is usually a quick way to verify an hypothesis about what outcomes I should expect.&lt;/p&gt;
+&lt;p&gt;The BDD way of structuring tests fits this approach pretty well. Given some initial conditions, when this thing occurs, then I expect this outcome. The difference is that instead of encoding requirements, I&amp;rsquo;m encoding hypotheses.&lt;/p&gt;
+	</description>
+    </item>
+
+  </channel> 
+</rss>
