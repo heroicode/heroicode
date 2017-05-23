@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Role-based thinking – an experiment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min-3.3.7.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="../../favicon.png">
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+	
+	<!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../">iNCo5.com</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../feed.xml">Subscribe</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">	
+	<div class="page-header">
+		<h1>Role-based thinking – an experiment</h1>
+	</div>
+
+	<p><em>12 November 2014</em></p>
+
+	<p><p>I have <a href="../2010/dns-aliasing.html">previously written</a> about the importance of thinking in terms of functional behavior rather than merely in terms of capability. That is, why we are doing something is at least as important as how we are doing it. Now, maybe I’ve been overdoing the whole Scrum thing lately (not likely), but I’ve started thinking more in terms of roles when I formulate tasks for my team. My old way of thinking (which I still frequently fall back into) goes something like this:</p>
+<blockquote>
+  <p>We have a lot of technical debt. We need to remove unused dependencies from our build. We need to improve our test coverage. We need to improve our release process. We need to be able to onboard new team members more easily. We need a more robust continuous integration environment. We need to make troubleshooting easier for production support. We need to fully externalize our application configuration. We need to minimize the impact of poor change management on the part of our upstream dependencies….</p>
+</blockquote>
+<p>There’s nothing wrong with working through a task list such as this, but it does have shortcomings. First, it (often) leads us to prioritize personal preference over team productivity. When each team member pursues these types of activities in isolation, the outcome is not always generalizable and so the impact is dampened.</p>
+<p>Second, it is difficult to justify these activities from a business perspective. The way I formulated the descriptions, there are no real quantifiable outcomes. While the objectives all sound good, we have to ask, what is the opportunity cost here? What are the tangible benefits to the team members who aren’t engineers? What are the benefits to the stakeholder the team is trying to serve?</p>
+<p>Finally, these sorts of to-do lists are often very difficult to estimate against. How do we know when is a task done? Which parts of the task have highest priority? The answer, typically, is when the person who completes the task is happy with the result. That’s not very well-structured, and in fact it smells like an anti-pattern. (Like when engineers write acceptance tests. But I digress.)</p>
+<p>So, my experiment, (which is ongoing, so I don’t have outcomes to report), is to take the concept of a user story and extend it to the various functional roles within our team. So there will be “role stories” but they can be formulated as typical user stories, and I will refer to them as user stories throughout. This concept is actually not unusual, or shouldn’t be, but I’ve only seen hints of this thinking on teams that I’ve worked with. I’m describing it here for my own benefit and because I assume many other teams out there fail to take a structured approach to self-organizing. (Certainly true of most of the teams I have worked on.)</p>
+<p>So the first user stories from my example would belong to the build manager. <em>As a build manager I need to remove unused dependencies from our modules…</em> etc. By formulating the tasks in this way, we can not only improve the quality of the product (which will benefit the stakeholder), we allow team members to have input into the tasks that they are assigned. It is a mechanism to address stressors and productivity inhibitors. This improves morale, and, done correctly, improves competence.</p>
+<p>The next story would be for the quality assurance role. It would go something like this: <em>as the quality assurance owner, I want to improve our test coverage so that defects raised by testers are reduced by at least 50%. Acceptance criteria will be branch coverage of 80% in the following problem modules: …</em> Of course, if the testers continue to raise defects, the issue would need to be revisited. Presumably the team would agree that this story makes sense, and would be able to break it down into small tasks, which should always be done.</p>
+<p>The next problem, facilitating team growth, is one that has been a struggle for most teams I’ve worked on. For that reason, I tend to think that it’s a difficult problem to solve. It can often be decomposed into small tasks and the burden shared among multiple members of the team, which I see as an upside. As a team member, I want to assist new team members by reducing the time it takes them to begin being productive without impacting the delivery of the sprint backlog. I’ll know this is possible when we have an accurate deployment diagram, a project overview guide, and a workstation setup guide.</p>
+<p>Where this thought experiment starts to get interesting is when we think about maintaining the “product” of these user stories. (Something the product owner really should care about.) So when a backlog shows a story like, <em>as a product user I need to be able to search for widgets</em>, we see that there are implied user stories (role stories!) that exist in parallel. That is, <em>as an engineer I need to create a Maven project that exposes an HTTP-based search API</em>, and also, <em>as a build manager I need to add new projects into our continuous integration environment</em>, and of course <em>as a test designer, I need to write functional tests against all HTTP-based services using <a target="_blank" href="http://www.soapui.org/">SoapUI</a></em>. (You do test your code, right?) So the interesting property of this thought experiment is the natural decomposability of user stories into tasks, and those tasks are themselves a sort of user story (role story, in my terminology). Add stories for a technical writer, deployment manager, and production support team and you’ve avoided a lot of technical debt.</p>
+<p>The other point that must be mentioned, thought it is obvious, is that the tasks associated with these stories may be completed by the same person. One person may perform multiple functional roles. For example, a tech lead may often function as an engineer, team growth facilitator, build manager, documentation maintainer, etc., possibly all within the same day.</p>
+<p>Functional decomposition, which is really all I’m talking about, helps to narrow the scope of a task in order to make it manageable. Whether we’re writing use cases, user stories, software, or documentation, functional decomposition is an important tool that is often ignored yet very valuable.</p></p>
+
+	<hr />
+	
+		</div>
+		<div id="push"></div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2017 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.3.7</a> | Baked with <a href="http://jbake.org">JBake v2.5.1</a></p>
+      </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min-3.3.7.js"></script>
+    <script src="../../js/prettify.js"></script>
+
+  </body>
+</html>
