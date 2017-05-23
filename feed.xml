@@ -6,8 +6,8 @@
     <atom:link href="https://nathansgreen.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Tue, 23 May 2017 11:45:23 -0500</pubDate>
-    <lastBuildDate>Tue, 23 May 2017 11:45:23 -0500</lastBuildDate>
+    <pubDate>Tue, 23 May 2017 11:47:32 -0500</pubDate>
+    <lastBuildDate>Tue, 23 May 2017 11:47:32 -0500</lastBuildDate>
 
     <item>
       <title>Unit Tests as Experiments</title>
@@ -27,7 +27,7 @@
       <pubDate>Wed, 12 Nov 2014 00:00:00 -0600</pubDate>
       <guid isPermaLink="false">blog/2014/role-based-thinking.html</guid>
       	<description>
-	&lt;p&gt;I have &lt;a href=&quot;blog/2010/dns-aliasing.html&quot;&gt;previously written&lt;/a&gt; about the importance of thinking in terms of functional behavior rather than merely in terms of capability. That is, why we are doing something is at least as important as how we are doing it. Now, maybe I’ve been overdoing the whole Scrum thing lately (not likely), but I’ve started thinking more in terms of roles when I formulate tasks for my team. My old way of thinking (which I still frequently fall back into) goes something like this:&lt;/p&gt;
+	&lt;p&gt;I have &lt;a href=&quot;/blog/2010/dns-aliasing.html&quot;&gt;previously written&lt;/a&gt; about the importance of thinking in terms of functional behavior rather than merely in terms of capability. That is, why we are doing something is at least as important as how we are doing it. Now, maybe I’ve been overdoing the whole Scrum thing lately (not likely), but I’ve started thinking more in terms of roles when I formulate tasks for my team. My old way of thinking (which I still frequently fall back into) goes something like this:&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;We have a lot of technical debt. We need to remove unused dependencies from our build. We need to improve our test coverage. We need to improve our release process. We need to be able to onboard new team members more easily. We need a more robust continuous integration environment. We need to make troubleshooting easier for production support. We need to fully externalize our application configuration. We need to minimize the impact of poor change management on the part of our upstream dependencies….&lt;/p&gt;
 &lt;/blockquote&gt;
