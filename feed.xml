@@ -6,8 +6,8 @@
     <atom:link href="https://nathansgreen.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Tue, 23 May 2017 13:41:44 -0500</pubDate>
-    <lastBuildDate>Tue, 23 May 2017 13:41:44 -0500</lastBuildDate>
+    <pubDate>Tue, 23 May 2017 15:44:24 -0500</pubDate>
+    <lastBuildDate>Tue, 23 May 2017 15:44:24 -0500</lastBuildDate>
 
     <item>
       <title>Unit Tests as Experiments</title>
@@ -41,6 +41,85 @@
 &lt;p&gt;Where this thought experiment starts to get interesting is when we think about maintaining the “product” of these user stories. (Something the product owner really should care about.) So when a backlog shows a story like, &lt;em&gt;as a product user I need to be able to search for widgets&lt;/em&gt;, we see that there are implied user stories (role stories!) that exist in parallel. That is, &lt;em&gt;as an engineer I need to create a Maven project that exposes an HTTP-based search API&lt;/em&gt;, and also, &lt;em&gt;as a build manager I need to add new projects into our continuous integration environment&lt;/em&gt;, and of course &lt;em&gt;as a test designer, I need to write functional tests against all HTTP-based services using &lt;a target=&quot;_blank&quot; href=&quot;http://www.soapui.org/&quot;&gt;SoapUI&lt;/a&gt;&lt;/em&gt;. (You do test your code, right?) So the interesting property of this thought experiment is the natural decomposability of user stories into tasks, and those tasks are themselves a sort of user story (role story, in my terminology). Add stories for a technical writer, deployment manager, and production support team and you’ve avoided a lot of technical debt.&lt;/p&gt;
 &lt;p&gt;The other point that must be mentioned, thought it is obvious, is that the tasks associated with these stories may be completed by the same person. One person may perform multiple functional roles. For example, a tech lead may often function as an engineer, team growth facilitator, build manager, documentation maintainer, etc., possibly all within the same day.&lt;/p&gt;
 &lt;p&gt;Functional decomposition, which is really all I’m talking about, helps to narrow the scope of a task in order to make it manageable. Whether we’re writing use cases, user stories, software, or documentation, functional decomposition is an important tool that is often ignored yet very valuable.&lt;/p&gt;
+	</description>
+    </item>
+    <item>
+      <title>On Not Being Ignorant</title>
+      <link>https://nathansgreen.github.io/blog/2014/on-not-being-ignorant.html</link>
+      <pubDate>Thu, 6 Nov 2014 00:00:00 -0600</pubDate>
+      <guid isPermaLink="false">blog/2014/on-not-being-ignorant.html</guid>
+      	<description>
+	&lt;p&gt;One of the more surreal events that has happened to me in my many programming jobs was the time I was contacted about a support issue for a web service that I knew almost nothing about. I don’t remember what that issue was, but I do remember how the situation came about.&lt;/p&gt;
+&lt;p&gt;I had been working on a web application that displayed search results from a service that was not provided by the application. The search went through another service that had a fairly large database of information, some of which was directly useful to our end users. During development and testing, no performance problems were noted and even in production things seem to be fine when we tested it. As it turns out performance was terrible under load, exactly when our users would need the service.&lt;/p&gt;
+&lt;p&gt;We opened a support ticket with the team that owned the service, but were not getting quick responses. So I did some research. I found their source code, got a connection into their test database, and was able to determine the kinds of queries that were needed to support the part of the service that we were using. Within about 15 minutes I was able to determine the cause and propose a solution, and I did so on the support ticket that my team had opened.&lt;/p&gt;
+&lt;p&gt;Somehow, the fact that my name was attached to a viable solution on that ticket led someone to believe that I knew something (about that service anyway). In a sense, I did. In the short time I spent examining the internals of that service, I learned several things. First, that I was not the first person to try to track down a performance problem in that system. Second, I would certainly not be the last person to do so. Third, I realized that the service could never do what it was intended to do without being rewritten. Fourth, I realized that the application ownership and support model in use by this particular corporation was pretty dysfunctional. (Well, I knew that before…)&lt;/p&gt;
+&lt;p&gt;The reason I started writing about this debacle is that it gave me a way to frame a few thoughts on “not being ignorant.” Because everyone is ignorant about most things (really), it’s worth pointing out that not being ignorant is a very selective thing.&lt;/p&gt;
+&lt;p&gt;So what really bothered me about this dysfunctional situation was really an acquiescence to ignorance. Let me cover some examples that are specific to this situation, but keep in mind that they reflect an underlying pattern.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;I don’t know why this SQL statement is slow, but I bet if I keep adding indexes eventually I’ll find one that works (and hopefully remember to delete the indexes that don’t have any value).&lt;/p&gt;
+  &lt;p&gt;I want to search this column in a case-insensitive way, so I’ll convert the search value and the column value to the same case in my SELECT statement and assume it will perform well.&lt;/p&gt;
+  &lt;p&gt;I know I need to limit the number of results I return to my users, but all I can think to do is have my ORM give me a list and then send back a slice; that should be good enough.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Want to guess what the pattern is? It’s a pain-minimization strategy. It’s like saying, “being ignorant is painful, so I’ll gain just enough knowledge to make the pain go away (temporarily).” Unfortunately, this strategy tends to produce a lot of repetitive variations of the same situation. Hence, I consider it to be a suboptimal lifestyle choice.&lt;/p&gt;
+&lt;p&gt;What were the effects of this strategy on the application I’ve been talking about? Obviously performance issues are one: exponential response times under moderate load can never be good. Maintenance costs were another: every performance issue had to be addressed as it was discovered. SLA adherence couldn’t be taken seriously, which in some situations can be a pretty high-stakes risk to take. As the application evolved, the possibility of proactive risk management became impossible, which is a big clue that a re-write is in order.&lt;/p&gt;
+&lt;p&gt;The opposite of ignorance is knowledge. Finding a better strategy for problem-solving is a valuable piece of knowledge. Don’t underestimate it.&lt;/p&gt;
+	</description>
+    </item>
+    <item>
+      <title>Push-based Server Automation</title>
+      <link>https://nathansgreen.github.io/blog/2014/push-based-automation.html</link>
+      <pubDate>Tue, 29 Apr 2014 00:00:00 -0500</pubDate>
+      <guid isPermaLink="false">blog/2014/push-based-automation.html</guid>
+      	<description>
+	&lt;p&gt;A couple of years ago, I wrote some server automation scripts which I used to remotely manage servers from my laptop. I thought I was being clever and original, since I was only aware of &lt;a target=&quot;_blank&quot; href=&quot;https://github.com/puppetlabs/puppet&quot;&gt;Puppet&lt;/a&gt; and &lt;a target=&quot;_blank&quot; href=&quot;https://www.chef.io/&quot;&gt;Chef&lt;/a&gt; at the time, and both require the installation of an agent on the remote server. But I recently discovered that &lt;a target=&quot;_blank&quot; href=&quot;https://github.com/ansible&quot;&gt;Ansible&lt;/a&gt; and &lt;a target=&quot;_blank&quot; href=&quot;https://github.com/saltstack&quot;&gt;Salt Stack&lt;/a&gt; both support push-based automation, so it seems I am not so original after all.&lt;/p&gt;
+&lt;p&gt;My scripts supported a number of useful features, so I thought it would be worth writing them down before I forget. It could push files over SSH, by default to &lt;code&gt;/tmp&lt;/code&gt;. Once uploaded, a file would be checksummed with MD5 and the script would error out if it didn’t match. I frequently uploaded compressed archives and then expanded them on the server, which was pretty efficient. I had the ability to run the scripts from Windows machines using the tools provided by PuTTY, using batch scripting, PowerShell scripting, or a port of the Bash shell. I had the ability to enter a username and password once and re-use them for multiple commands. (I sent files over SCP with individual calls, so password-reentry was painful when targeting a 9-node cluster.) Password entry was not logged to the console, for security reasons. When different usernames were needed, a password prompt was still provided only once. (In retrospect, the ability to use keys with &lt;code&gt;ssh-agent&lt;/code&gt; would have been fantastic, but I had no control over that.) The scripts could also run remote commands to do things like restart application servers and verify or update file permissions. (Some admins were not careful about not using the root user to restart the app servers, which caused a lot of files to become owned by root, and subsequent restarts that were done correctly would fail in strange ways, so permission verification was a big time-saver.)&lt;/p&gt;
+&lt;p&gt;The other nice thing about my scripts is that I kept them all versioned in our SCM. Any time I needed to push releases to production, my main task was to enter the correct version number(s) of the components I was pushing, and I could then tag that change permanently in the SCM. Deployments got a lot more boring when this stage was reached, which was really nice. I’m not a sysadmin and don’t really care to be one. Automating the hassles of admin work helps me to stay sane.&lt;/p&gt;
+&lt;p&gt;If you actually have decision-making authority, I suggest you do better: invest in real automation tools. Your good developers will be happier. Your not-as-good developers won’t screw things up by accident so easily. (This was all-too-frequent from people I won&amp;rsquo;t name, and cost me a lot of sleep.)&lt;/p&gt;
+	</description>
+    </item>
+    <item>
+      <title>Test-driven Troubleshooting</title>
+      <link>https://nathansgreen.github.io/blog/2013/test-driven-troubleshooting.html</link>
+      <pubDate>Wed, 3 Apr 2013 00:00:00 -0500</pubDate>
+      <guid isPermaLink="false">blog/2013/test-driven-troubleshooting.html</guid>
+      	<description>
+	&lt;p&gt;Lately I’ve found myself writing what I would consider to be odd unit tests. Odd because they are not written to test my code, or really to test any code that is used in my current project. Rather, these tests have served as proofs of the behavioral characteristics of target deployment environments.&lt;/p&gt;
+&lt;p&gt;One test I wrote was to demonstrate that a particular filesystem location was not writable from within an app server. This had been preceded by proof that assuming the user credentials used by the app server process did indeed have write access. In this situation, quite strangely, the app server had failed to acquire write permissions. Since the application failures we were seeing appeared to be due to this filesystem permissions issue, no further troubleshooting effort was required on my part because I had proven that the failure was not in the application layer.&lt;/p&gt;
+&lt;p&gt;Another test I wrote to demonstrate that certain HTTP headers were not being passed to a Java Servlet container. Additionally, the test showed that the container was not responding appropriately when those headers were subsequently enabled. Why did this test matter? By demonstrating that the application was not defective, I was able to avoid modifying application code to work around an improperly configured environment.&lt;/p&gt;
+&lt;p&gt;Finally, I wrote a test to prove that certain response characteristics of an OAuth-protected resource were incorrect. This would have been extremely difficult to accomplish solely by use of runtime testing (e.g. navigation in a browser) because the OAuth calls were not under the control of the browser. By using automated tests, I not only shortened my debugging time, I also was able to send my test case to another engineer for verification.&lt;/p&gt;
+&lt;p&gt;By writing tests at the start of problem investigations, I am able to see the impact of changes. (It is often the case that an attempt to fix a problem will create a new problem elsewhere.) I am able to repeat my test many times with minimal effort. I am also able to share my tests with others; one benefit of that is that I may make mistakes that are more easily spotted by others.&lt;/p&gt;
+&lt;p&gt;Because of all this, I have lately been thinking of unit tests more along the lines of mathematical proofs, rather than just a way to exercise a set of CPU instructions. Properly constructed, a unit test can serve as a very practical sort of mathematical proof. And in my case, these proofs helped to spare me from needless time-wasting activities. By rigorously asserting the conditions required for success or failure, I was able to repeatedly and consistently isolate the causes of these various problems I had encountered. In all of these cases, I would have saved even more time had I started my troubleshooting efforts by writing the test first. Test-driven troubleshooting isn’t always possible, but I do recommend that you consider it, especially if you value your time and do not wish to waste it on needless activities.&lt;/p&gt;
+	</description>
+    </item>
+    <item>
+      <title>Oracle XQuery Bug?</title>
+      <link>https://nathansgreen.github.io/blog/2012/oracle-xquery-bug.html</link>
+      <pubDate>Wed, 15 Feb 2012 00:00:00 -0600</pubDate>
+      <guid isPermaLink="false">blog/2012/oracle-xquery-bug.html</guid>
+      	<description>
+	&lt;p&gt;I’ve spent the last 2 weeks on a super-secret project to slice and dice (and search, aggregate, and transform) XML in a Oracle database using the Hibernate ORM tool. Okay, maybe it’s not super-secret, but it is super-fun, and the kind of project that might stir up the world’s tiniest dust cloud of enviousness in perhaps one or two of my peers. Seamlessly querying XML and relational data is definitely useful at times. But I digress…&lt;/p&gt;
+&lt;p&gt;I started writing this post because I seem to have found a bug in Oracle’s XQuery support. As I so often do, I tried something just to see what would happen. I was not disappointed, because what happened was interesting. I ran a query like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;sql&quot;&gt;select
+    XMLQuery(&amp;#39;fn:distinct-values(/document/parent/child[@name])&amp;#39;
+            passing x.OBJECT_VALUE returning content).getClobVal()
+from
+    xmltype_table x
+where
+    XmlExists(&amp;#39;/document/author/name[text() = $name]&amp;#39;
+            passing x.OBJECT_VALUE, &amp;#39;Frederick&amp;#39; as &amp;quot;name&amp;quot;)
+;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This query was supposed to return the distinct values found in the attribute name on all elements named &lt;code&gt;child&lt;/code&gt; that descend from &lt;code&gt;parent&lt;/code&gt; which descends from &lt;code&gt;document&lt;/code&gt;. As you can see, I did not get the result I expected:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ORA-00600: internal error code, arguments: [qctcte1], [0], [], [], [], [], [], [], [], [], [], []
+00600. 00000 -  &amp;quot;internal error code, arguments: [%s], [%s], [%s], [%s], [%s], [%s], [%s], [%s]&amp;quot;
+*Cause:    This is the generic internal error number for Oracle program
+        exceptions.             This indicates that a process has encountered an
+        exceptional condition.
+*Action:   Report as a bug - the first argument is the internal error number
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I honestly expected that the query would return a result. I ought to be able to get a set of distinct attribute values, just like I can get a set of distinct element values. At the same time, I also thought that in the worst case I would get a syntax error, or perhaps some other indication that I was attempting to use the query system in an unsupported manner.&lt;/p&gt;
+&lt;p&gt;I’ve been working with Oracle databases for 11 years now, and I believe this is the first time I’ve found a real bug. Considering the complexity of the full XQuery specification combined with a relational database engine, bugs are pretty much inevitable. That said, this is a great example of a case for automated regression testing. It’s probably also an example of a use case that may have been thought of but never got enough priority to be implemented.&lt;/p&gt;
+&lt;p&gt;One thing I do know: an &lt;code&gt;ORA-00600&lt;/code&gt; is a great thing to discover &lt;em&gt;before&lt;/em&gt; you promise to deliver some piece of functionality. For now, my code will have to sort through attribute values on the client side.&lt;/p&gt;
 	</description>
     </item>
     <item>
