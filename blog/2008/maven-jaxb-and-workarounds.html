@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Maven, JAXB, and Workarounds</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="generator" content="JBake">
+
+    <!-- Le styles -->
+    <link href="../../css/bootstrap.min-3.3.7.css" rel="stylesheet">
+    <link href="../../css/asciidoctor.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link href="../../css/prettify.css" rel="stylesheet">
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-99754303-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="../../favicon.png">
+  </head>
+  <body onload="prettyPrint()">
+    <div id="wrap">
+	
+	<!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../">Heroicode</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../resume.html">Résumé</a></li>
+            <li><a href="../../feed.xml">Subscribe</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">	
+	<div class="page-header">
+		<h1>Maven, JAXB, and Workarounds</h1>
+	</div>
+
+	<p><em>10 November 2008</em></p>
+
+	<p><p>We’re using Maven 2 at work to build our projects now. One of the projects uses JAXB to manage some XML documents. Well, the JAXB standard doesn’t say anything about how namespaces are handled when marshalling to XML, which means I can’t write XSLT against our output (FAIL). Sun’s JAXB implementation has a way to control namespace output, but it’s non-standard. Even worse, it changed between Java 5.0 and 6.0 (package rename), so code written against 5.0 will fail when running in a newer JVM.</p>
+<p>I’m <a target="_blank"
+href="http://pragmaticintegration.blogspot.com/2007/11/moving-jaxb-20-applications-built-by.html"
+>not the only one</a> who has had this problem, but I think my solution is different than any I’ve seen. It took me a long time to get Maven to cooperate, but I finally got it working. I believe I found a bug in Maven, but I haven’t looked at the source yet to verify it. Maven documentation is extremely lacking when it comes to explaining what’s really going on. Sadly, it’s the best thing out there; the only good thing I can say is Maven 2 is better than the original.</p>
+<p>Here is the Java code and Maven POM excerpts necessary to explain my solution:</p>
+<pre><code class="java">import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
+class PrefixMapper_JDK5 extends NamespacePrefixMapper {
+    @Override
+    public String getPreferredPrefix(String namespaceUri, String suggestion,
+            boolean requirePrefix) {
+        return suggestion;
+    }
+}
+
+//JDK 6 added &quot;internal&quot; to the package naming
+import com.sun.xml.internal.bind.marshaller.NamespacePrefixMapper;
+class PrefixMapper_JDK6 extends NamespacePrefixMapper {
+    @Override
+    public String getPreferredPrefix(String namespaceUri, String suggestion,
+            boolean requirePrefix) {
+        return suggestion;
+    }
+}
+
+public Object getNamespacePrefixMapper() {
+    Object r = null;
+//the mapper classes should be compiled separately before this method
+//is compiled so they match the proper JDK (-source and -target flags)
+    Class[] mapperList = {
+        //first one in list gets priority...
+        PrefixMapper_JDK6.class, PrefixMapper_JDK5.class
+    };
+    try { //there is a better way to implement this... you can figure it out
+        r = mapperList[0].getClass().newInstance();
+    } catch (Exception e) {
+        try {
+            r = mapperList[1].getClass().newInstance();
+        } catch (Exception ex) {}
+    }
+    return r; //null if neither class could be loaded
+}
+</code></pre>
+<pre><code class="xml">&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;source&gt;1.6&lt;/source&gt;
+        &lt;target&gt;1.6&lt;/target&gt;
+        &lt;excludes&gt;
+            &lt;!-- Maven is buggy here and will not remove the first
+                 exclude line given, so the first one needs to be
+                 bogus. --&gt;
+            &lt;exclude&gt;==MavenBugWorkaround==&lt;/exclude&gt;
+            &lt;exclude&gt;**/PrefixMapper_JDK5.java&lt;/exclude&gt;
+        &lt;/excludes&gt;
+    &lt;/configuration&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;compile&lt;/goal&gt;
+            &lt;/goals&gt;
+            &lt;phase&gt;compile&lt;/phase&gt;
+            &lt;configuration&gt;
+                &lt;source&gt;1.5&lt;/source&gt;
+                &lt;target&gt;1.5&lt;/target&gt;
+                &lt;!-- clears inherited exclude list
+                     (except for 1st element) --&gt;
+                &lt;excludes/&gt;
+                &lt;!-- only uncompiled files will be looked at --&gt;
+                &lt;includes&gt;
+                    &lt;include&gt;**/*.java&lt;/include&gt;
+                &lt;/includes&gt;
+            &lt;/configuration&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;
+</code></pre></p>
+
+	<hr />
+	
+		</div>
+		<div id="push"></div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2017 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.3.7</a> | Baked with <a href="http://jbake.org">JBake v2.5.1</a></p>
+      </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../js/jquery-1.11.1.min.js"></script>
+    <script src="../../js/bootstrap.min-3.3.7.js"></script>
+    <script src="../../js/prettify.js"></script>
+
+  </body>
+</html>

@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JBake</title>
-    <link>https://nathansgreen.github.io</link>
-    <atom:link href="https://nathansgreen.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://heroicode.github.io</link>
+    <atom:link href="https://heroicode.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Wed, 24 May 2017 00:31:32 -0500</pubDate>
-    <lastBuildDate>Wed, 24 May 2017 00:31:32 -0500</lastBuildDate>
+    <pubDate>Wed, 24 May 2017 11:21:30 -0500</pubDate>
+    <lastBuildDate>Wed, 24 May 2017 11:21:30 -0500</lastBuildDate>
 
     <item>
       <title>Unit Tests as Experiments</title>
-      <link>https://nathansgreen.github.io/blog/2017/unit-tests-as-experiments.html</link>
+      <link>https://heroicode.github.io/blog/2017/unit-tests-as-experiments.html</link>
       <pubDate>Thu, 11 May 2017 00:00:00 -0500</pubDate>
       <guid isPermaLink="false">blog/2017/unit-tests-as-experiments.html</guid>
       	<description>
@@ -23,7 +23,7 @@
     </item>
     <item>
       <title>Role-based thinking – an experiment</title>
-      <link>https://nathansgreen.github.io/blog/2014/role-based-thinking.html</link>
+      <link>https://heroicode.github.io/blog/2014/role-based-thinking.html</link>
       <pubDate>Wed, 12 Nov 2014 00:00:00 -0600</pubDate>
       <guid isPermaLink="false">blog/2014/role-based-thinking.html</guid>
       	<description>
@@ -45,7 +45,7 @@
     </item>
     <item>
       <title>On Not Being Ignorant</title>
-      <link>https://nathansgreen.github.io/blog/2014/on-not-being-ignorant.html</link>
+      <link>https://heroicode.github.io/blog/2014/on-not-being-ignorant.html</link>
       <pubDate>Thu, 6 Nov 2014 00:00:00 -0600</pubDate>
       <guid isPermaLink="false">blog/2014/on-not-being-ignorant.html</guid>
       	<description>
@@ -67,7 +67,7 @@
     </item>
     <item>
       <title>Push-based Server Automation</title>
-      <link>https://nathansgreen.github.io/blog/2014/push-based-automation.html</link>
+      <link>https://heroicode.github.io/blog/2014/push-based-automation.html</link>
       <pubDate>Tue, 29 Apr 2014 00:00:00 -0500</pubDate>
       <guid isPermaLink="false">blog/2014/push-based-automation.html</guid>
       	<description>
@@ -79,7 +79,7 @@
     </item>
     <item>
       <title>Test-driven Troubleshooting</title>
-      <link>https://nathansgreen.github.io/blog/2013/test-driven-troubleshooting.html</link>
+      <link>https://heroicode.github.io/blog/2013/test-driven-troubleshooting.html</link>
       <pubDate>Wed, 3 Apr 2013 00:00:00 -0500</pubDate>
       <guid isPermaLink="false">blog/2013/test-driven-troubleshooting.html</guid>
       	<description>
@@ -92,8 +92,56 @@
 	</description>
     </item>
     <item>
+      <title>Improving cmd.exe</title>
+      <link>https://heroicode.github.io/blog/2012/improving-cmd-exe.html</link>
+      <pubDate>Sun, 12 Aug 2012 00:00:00 -0500</pubDate>
+      <guid isPermaLink="false">blog/2012/improving-cmd-exe.html</guid>
+      	<description>
+	&lt;p&gt;While out-of-the-box features for Windows’ command interpreter (&lt;code&gt;cmd.exe&lt;/code&gt;) have mildly improved over the years (command completion turned on by default comes to mind), the defaults are still boring. Really, really boring. And kinda ugly, too.&lt;/p&gt;
+&lt;p&gt;Beyond the boring and the ugly, however, stands the dysfunctional. A tiny scroll buffer means you will quickly and easily lose data. Mouse support is turned off by default. The window is too small by default. The font could be better…&lt;/p&gt;
+&lt;p&gt;So, to spare you, the reader, the time needed to fix all those settings, I created some shortcuts (&lt;code&gt;.lnk&lt;/code&gt; files) that will present you with reasonable defaults. You can &lt;a target=&quot;_blank&quot;
+href=&quot;https://dl.dropbox.com/s/oyut3zltsfnws91/cmd.lnk.zip?dl=1&quot;
+&gt;download them all&lt;/a&gt; in a zipfile, or individually select the ones you’re interested in.&lt;/p&gt;
+&lt;p&gt;Here’s a screenshot with four examples:&lt;/p&gt;
+&lt;a href=&quot;/img/cmd-exe-color-quad-02.png&quot;&gt;
+&lt;img alt=&quot;Four examples of colorized cmd.exe windows&quot;
+ style=&quot;max-width: 600px; margin-bottom: 1em;&quot;
+src=&quot;/img/cmd-exe-color-quad-02.png&quot;&gt;&lt;/a&gt;
+&lt;p&gt;And here are the individual links:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+  &lt;a target=&quot;_blank&quot;
+ href=&quot;https://dl.dropbox.com/s/i11izjxpx4d75e4/CMD%20%28amber%29.lnk?dl=1&quot;
+ &gt;amber&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+  &lt;a target=&quot;_blank&quot;
+ href=&quot;https://dl.dropbox.com/s/s3y814zxeuadljq/CMD%20%28blue%29.lnk?dl=1&quot;
+ &gt;blue&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+  &lt;a target=&quot;_blank&quot;
+ href=&quot;https://dl.dropbox.com/s/j2c96mb5vo0zybg/CMD%20%28green%29.lnk?dl=1&quot;
+ &gt;green&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+  &lt;a target=&quot;_blank&quot;
+ href=&quot;https://dl.dropbox.com/s/jerqto9e0md1dr2/CMD%20%28grey%29.lnk?dl=1&quot;
+ &gt;grey&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+  &lt;a target=&quot;_blank&quot;
+ href=&quot;https://dl.dropbox.com/s/1f674p0fs1vedxt/CMD%20%28red%29.lnk?dl=1&quot;
+ &gt;red&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+  &lt;a target=&quot;_blank&quot;
+ href=&quot;https://dl.dropbox.com/s/0ui6zsclt8h6nr3/CMD%20%28yellow%29.lnk?dl=1&quot;
+ &gt;yellow&lt;/a&gt;
+  &lt;!--
+Of course, if you have improvements/suggestions for working with `cmd.exe`, I’d be very interested in hearing them.
+--&gt;&lt;/li&gt;
+&lt;/ul&gt;
+	</description>
+    </item>
+    <item>
       <title>Oracle XQuery Bug?</title>
-      <link>https://nathansgreen.github.io/blog/2012/oracle-xquery-bug.html</link>
+      <link>https://heroicode.github.io/blog/2012/oracle-xquery-bug.html</link>
       <pubDate>Wed, 15 Feb 2012 00:00:00 -0600</pubDate>
       <guid isPermaLink="false">blog/2012/oracle-xquery-bug.html</guid>
       	<description>
@@ -123,8 +171,54 @@ where
 	</description>
     </item>
     <item>
+      <title>Unhelpful JSF Error</title>
+      <link>https://heroicode.github.io/blog/2010/unhelpful-jsf-error.html</link>
+      <pubDate>Tue, 7 Dec 2010 00:00:00 -0600</pubDate>
+      <guid isPermaLink="false">blog/2010/unhelpful-jsf-error.html</guid>
+      	<description>
+	&lt;p&gt;I certainly haven’t the time to blog about every unhelpful error message I find, especially not when it comes to frameworks. Good error handling is an art, and even the best projects aren’t likely to get it all right. And then there’s JSF. Or, at least, JSF as I’m using it now: the 1.2 API, MyFaces, ICEfaces, all running on Jetspeed 2. I’ve become numb to the bad error messages, mostly. You get used to them after a while, and even start to understand them.&lt;/p&gt;
+&lt;p&gt;This particular case had me up until midnight with nothing but frustration to show for it. After a bit of sleep (one of the key elements of software debugging that is often overlooked) it dawned on me what my problem was. Consider the code:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public class MyBean
+{
+    enum MyEnum {
+        VAR1,
+        VAR2;
+        public String getTitle() {
+            return name().toLowerCase();
+        }
+    }
+    …
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And the related facelet markup:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code&gt;#{myEnumValue.class} is titled &amp;#39;#{myEnumValue.title}&amp;#39;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It seemed to be straightforward, but I kept getting this error message:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code&gt;Property &amp;#39;title&amp;#39; not readable on type java.lang.String&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And what kept bugging me was the fact that &lt;code&gt;#{myEnumValue.class}&lt;/code&gt; worked when it was by itself (it would output &lt;code&gt;MyBean.MyEnum&lt;/code&gt;). I could clearly see the class name, and it looked just fine. But as soon as I added in the title property, I would get the error message again. Obviously &lt;code&gt;myEnumValue&lt;/code&gt; was not a &lt;code&gt;String&lt;/code&gt;, so why does the error message say that it is?&lt;/p&gt;
+&lt;p&gt;As it turns out, my &lt;code&gt;Enum&lt;/code&gt; wasn’t public, and so apparently the methods on it could not be invoked. Rather than telling me that, the expression evaluator decided to coerce the Enum into a &lt;code&gt;String&lt;/code&gt; and then see if the property I wanted was part of the &lt;code&gt;String&lt;/code&gt; class. It wasn’t. Here’s the solution:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public class MyBean
+{
+    public enum MyEnum {
+    …
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So there you have it: one more strange error message deciphered. I hope others will spend less time tracking down these types of errors than I do.&lt;/p&gt;
+&lt;p&gt;And the real moral of the story? Well, first, error handling is hard. While string coercion may be a good strategy for this situation, the fallback error message proves unhelpful. Better to capture the message that triggered the fallback and return it instead. Unfortunately, that requires that your error handling strategy can maintain such a message and know when to use it. So a second moral is, be prepared for error handling to get much more complex as your requirements expand.&lt;/p&gt;
+&lt;!--
+Beyond that, you’ll have to wait for a future article where I will explain in
+more detail the design flaw that makes this particular error possible. I will
+update this post to point to the new article when it is complete.
+--&gt;
+	</description>
+    </item>
+    <item>
       <title>DNS aliasing: panacea?</title>
-      <link>https://nathansgreen.github.io/blog/2010/dns-aliasing.html</link>
+      <link>https://heroicode.github.io/blog/2010/dns-aliasing.html</link>
       <pubDate>Fri, 18 Jun 2010 00:00:00 -0500</pubDate>
       <guid isPermaLink="false">blog/2010/dns-aliasing.html</guid>
       	<description>
@@ -136,6 +230,112 @@ where
 &lt;p&gt;I should also point out that clients (users) can also benefit from aliasing. If you have hundreds of users connecting to &lt;code&gt;http://swds19/&lt;/code&gt; to access an application and you decide to migrate it to &lt;code&gt;http://swdx30/&lt;/code&gt;, not only do you have to tell the users, they have to update any bookmarks they have. Any documentation containing this information, such as training materials, would also need to be changed. By using a well-thought-out alias, you protect yourself against change and avoid confusing and frustrating your users. Should you continue to use your standard naming convention to address each server? Absolutely. However, those types of names are for administrators, not for applications, and most certainly not for users. Under my proposed schema, every host should have a minimum of 2 names: a conventional name for sysadmins, and a meaningful alias for an application or its end users.&lt;/p&gt;
 &lt;p&gt;By now you must be saying, aren’t there some drawbacks to this? Well, it does mean a little administrative overhead to manage the DNS records. It also means you have to actually think in order to choose good aliases. (Choosing bad ones may come back to haunt you.) Particularly if you have a robust development/QA lifecycle, there may be more administrative work, since you have many more systems to work with. Yes, there is some overhead with this strategy, but I think in most situations it will more than pay for itself over time.&lt;/p&gt;
 &lt;p&gt;Remember: choose an alias based on the function the system is intended to perform. It is perfectly fine to have many aliases pointing to the same system. Going back to the database scenario, if we have 15 applications that all use the same database server, yes, that means we would have 15 DNS aliases. It also means we can move any of those 15 databases and the only hard work is dealing with the individual database in question. Change is inevitable, but it doesn’t always have to be painful. Changing CNAME records is pretty easy compared to most alternatives. It’s not a panacea, but it solves a lot of problems before they become problems.&lt;/p&gt;
+	</description>
+    </item>
+    <item>
+      <title>Brutalities</title>
+      <link>https://heroicode.github.io/blog/2009/brutalities.html</link>
+      <pubDate>Thu, 22 Jan 2009 00:00:00 -0600</pubDate>
+      <guid isPermaLink="false">blog/2009/brutalities.html</guid>
+      	<description>
+	&lt;p&gt;An apt summary of my view, provided by Eclipse spell-check.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/brutalities.png&quot; alt=&quot;spell check suggests &amp;lsquo;brutalities&amp;rsquo; as a fix for &amp;lsquo;portlets&amp;rsquo; &quot; /&gt;&lt;/p&gt;
+	</description>
+    </item>
+    <item>
+      <title>Maven, JAXB, and Workarounds</title>
+      <link>https://heroicode.github.io/blog/2008/maven-jaxb-and-workarounds.html</link>
+      <pubDate>Mon, 10 Nov 2008 00:00:00 -0600</pubDate>
+      <guid isPermaLink="false">blog/2008/maven-jaxb-and-workarounds.html</guid>
+      	<description>
+	&lt;p&gt;We’re using Maven 2 at work to build our projects now. One of the projects uses JAXB to manage some XML documents. Well, the JAXB standard doesn’t say anything about how namespaces are handled when marshalling to XML, which means I can’t write XSLT against our output (FAIL). Sun’s JAXB implementation has a way to control namespace output, but it’s non-standard. Even worse, it changed between Java 5.0 and 6.0 (package rename), so code written against 5.0 will fail when running in a newer JVM.&lt;/p&gt;
+&lt;p&gt;I’m &lt;a target=&quot;_blank&quot;
+href=&quot;http://pragmaticintegration.blogspot.com/2007/11/moving-jaxb-20-applications-built-by.html&quot;
+&gt;not the only one&lt;/a&gt; who has had this problem, but I think my solution is different than any I’ve seen. It took me a long time to get Maven to cooperate, but I finally got it working. I believe I found a bug in Maven, but I haven’t looked at the source yet to verify it. Maven documentation is extremely lacking when it comes to explaining what’s really going on. Sadly, it’s the best thing out there; the only good thing I can say is Maven 2 is better than the original.&lt;/p&gt;
+&lt;p&gt;Here is the Java code and Maven POM excerpts necessary to explain my solution:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
+class PrefixMapper_JDK5 extends NamespacePrefixMapper {
+    @Override
+    public String getPreferredPrefix(String namespaceUri, String suggestion,
+            boolean requirePrefix) {
+        return suggestion;
+    }
+}
+
+//JDK 6 added &amp;quot;internal&amp;quot; to the package naming
+import com.sun.xml.internal.bind.marshaller.NamespacePrefixMapper;
+class PrefixMapper_JDK6 extends NamespacePrefixMapper {
+    @Override
+    public String getPreferredPrefix(String namespaceUri, String suggestion,
+            boolean requirePrefix) {
+        return suggestion;
+    }
+}
+
+public Object getNamespacePrefixMapper() {
+    Object r = null;
+//the mapper classes should be compiled separately before this method
+//is compiled so they match the proper JDK (-source and -target flags)
+    Class[] mapperList = {
+        //first one in list gets priority...
+        PrefixMapper_JDK6.class, PrefixMapper_JDK5.class
+    };
+    try { //there is a better way to implement this... you can figure it out
+        r = mapperList[0].getClass().newInstance();
+    } catch (Exception e) {
+        try {
+            r = mapperList[1].getClass().newInstance();
+        } catch (Exception ex) {}
+    }
+    return r; //null if neither class could be loaded
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;xml&quot;&gt;&amp;lt;plugin&amp;gt;
+    &amp;lt;groupId&amp;gt;org.apache.maven.plugins&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;maven-compiler-plugin&amp;lt;/artifactId&amp;gt;
+    &amp;lt;configuration&amp;gt;
+        &amp;lt;source&amp;gt;1.6&amp;lt;/source&amp;gt;
+        &amp;lt;target&amp;gt;1.6&amp;lt;/target&amp;gt;
+        &amp;lt;excludes&amp;gt;
+            &amp;lt;!-- Maven is buggy here and will not remove the first
+                 exclude line given, so the first one needs to be
+                 bogus. --&amp;gt;
+            &amp;lt;exclude&amp;gt;==MavenBugWorkaround==&amp;lt;/exclude&amp;gt;
+            &amp;lt;exclude&amp;gt;**/PrefixMapper_JDK5.java&amp;lt;/exclude&amp;gt;
+        &amp;lt;/excludes&amp;gt;
+    &amp;lt;/configuration&amp;gt;
+    &amp;lt;executions&amp;gt;
+        &amp;lt;execution&amp;gt;
+            &amp;lt;goals&amp;gt;
+                &amp;lt;goal&amp;gt;compile&amp;lt;/goal&amp;gt;
+            &amp;lt;/goals&amp;gt;
+            &amp;lt;phase&amp;gt;compile&amp;lt;/phase&amp;gt;
+            &amp;lt;configuration&amp;gt;
+                &amp;lt;source&amp;gt;1.5&amp;lt;/source&amp;gt;
+                &amp;lt;target&amp;gt;1.5&amp;lt;/target&amp;gt;
+                &amp;lt;!-- clears inherited exclude list
+                     (except for 1st element) --&amp;gt;
+                &amp;lt;excludes/&amp;gt;
+                &amp;lt;!-- only uncompiled files will be looked at --&amp;gt;
+                &amp;lt;includes&amp;gt;
+                    &amp;lt;include&amp;gt;**/*.java&amp;lt;/include&amp;gt;
+                &amp;lt;/includes&amp;gt;
+            &amp;lt;/configuration&amp;gt;
+        &amp;lt;/execution&amp;gt;
+    &amp;lt;/executions&amp;gt;
+&amp;lt;/plugin&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+	</description>
+    </item>
+    <item>
+      <title>XML</title>
+      <link>https://heroicode.github.io/blog/2008/xml.html</link>
+      <pubDate>Thu, 23 Oct 2008 00:00:00 -0500</pubDate>
+      <guid isPermaLink="false">blog/2008/xml.html</guid>
+      	<description>
+	&lt;p&gt;I vote for making XML abuse a crime. People treat it like it’s AI or something – use it and your program magically “understands” things.&lt;/p&gt;
+&lt;p&gt;The application I’m calling has an XML format; our company has an XML format – I get to convert back and forth between the two. Our format is infinitely recursive… The business rules engine is XML-based. There are XML config files, schemas, wsdl files, build scripts, repository meta-data, entity mapping specifications, XSLT…&lt;/p&gt;
+&lt;p&gt;Someone please bring an end to all this misery. Stop using a document format for everything that’s not a document!&lt;/p&gt;
 	</description>
     </item>
 

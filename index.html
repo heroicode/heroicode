@@ -118,6 +118,48 @@
 <p>Finally, I wrote a test to prove that certain response characteristics of an OAuth-protected resource were incorrect. This would have been extremely difficult to accomplish solely by use of runtime testing (e.g. navigation in a browser) because the OAuth calls were not under the control of the browser. By using automated tests, I not only shortened my debugging time, I also was able to send my test case to another engineer for verification.</p>
 <p>By writing tests at the start of problem investigations, I am able to see the impact of changes. (It is often the case that an attempt to fix a problem will create a new problem elsewhere.) I am able to repeat my test many times with minimal effort. I am also able to share my tests with others; one benefit of that is that I may make mistakes that are more easily spotted by others.</p>
 <p>Because of all this, I have lately been thinking of unit tests more along the lines of mathematical proofs, rather than just a way to exercise a set of CPU instructions. Properly constructed, a unit test can serve as a very practical sort of mathematical proof. And in my case, these proofs helped to spare me from needless time-wasting activities. By rigorously asserting the conditions required for success or failure, I was able to repeatedly and consistently isolate the causes of these various problems I had encountered. In all of these cases, I would have saved even more time had I started my troubleshooting efforts by writing the test first. Test-driven troubleshooting isn’t always possible, but I do recommend that you consider it, especially if you value your time and do not wish to waste it on needless activities.</p></p>
+  			<a href="blog/2012/improving-cmd-exe.html"><h1>Improving cmd.exe</h1></a>
+  			<p>12 August 2012</p>
+  			<p><p>While out-of-the-box features for Windows’ command interpreter (<code>cmd.exe</code>) have mildly improved over the years (command completion turned on by default comes to mind), the defaults are still boring. Really, really boring. And kinda ugly, too.</p>
+<p>Beyond the boring and the ugly, however, stands the dysfunctional. A tiny scroll buffer means you will quickly and easily lose data. Mouse support is turned off by default. The window is too small by default. The font could be better…</p>
+<p>So, to spare you, the reader, the time needed to fix all those settings, I created some shortcuts (<code>.lnk</code> files) that will present you with reasonable defaults. You can <a target="_blank"
+href="https://dl.dropbox.com/s/oyut3zltsfnws91/cmd.lnk.zip?dl=1"
+>download them all</a> in a zipfile, or individually select the ones you’re interested in.</p>
+<p>Here’s a screenshot with four examples:</p>
+<a href="/img/cmd-exe-color-quad-02.png">
+<img alt="Four examples of colorized cmd.exe windows"
+ style="max-width: 600px; margin-bottom: 1em;"
+src="/img/cmd-exe-color-quad-02.png"></a>
+<p>And here are the individual links:</p>
+<ul>
+  <li>
+  <a target="_blank"
+ href="https://dl.dropbox.com/s/i11izjxpx4d75e4/CMD%20%28amber%29.lnk?dl=1"
+ >amber</a></li>
+  <li>
+  <a target="_blank"
+ href="https://dl.dropbox.com/s/s3y814zxeuadljq/CMD%20%28blue%29.lnk?dl=1"
+ >blue</a></li>
+  <li>
+  <a target="_blank"
+ href="https://dl.dropbox.com/s/j2c96mb5vo0zybg/CMD%20%28green%29.lnk?dl=1"
+ >green</a></li>
+  <li>
+  <a target="_blank"
+ href="https://dl.dropbox.com/s/jerqto9e0md1dr2/CMD%20%28grey%29.lnk?dl=1"
+ >grey</a></li>
+  <li>
+  <a target="_blank"
+ href="https://dl.dropbox.com/s/1f674p0fs1vedxt/CMD%20%28red%29.lnk?dl=1"
+ >red</a></li>
+  <li>
+  <a target="_blank"
+ href="https://dl.dropbox.com/s/0ui6zsclt8h6nr3/CMD%20%28yellow%29.lnk?dl=1"
+ >yellow</a>
+  <!--
+Of course, if you have improvements/suggestions for working with `cmd.exe`, I’d be very interested in hearing them.
+--></li>
+</ul></p>
   			<a href="blog/2012/oracle-xquery-bug.html"><h1>Oracle XQuery Bug?</h1></a>
   			<p>15 February 2012</p>
   			<p><p>I’ve spent the last 2 weeks on a super-secret project to slice and dice (and search, aggregate, and transform) XML in a Oracle database using the Hibernate ORM tool. Okay, maybe it’s not super-secret, but it is super-fun, and the kind of project that might stir up the world’s tiniest dust cloud of enviousness in perhaps one or two of my peers. Seamlessly querying XML and relational data is definitely useful at times. But I digress…</p>
@@ -143,6 +185,46 @@ where
 <p>I honestly expected that the query would return a result. I ought to be able to get a set of distinct attribute values, just like I can get a set of distinct element values. At the same time, I also thought that in the worst case I would get a syntax error, or perhaps some other indication that I was attempting to use the query system in an unsupported manner.</p>
 <p>I’ve been working with Oracle databases for 11 years now, and I believe this is the first time I’ve found a real bug. Considering the complexity of the full XQuery specification combined with a relational database engine, bugs are pretty much inevitable. That said, this is a great example of a case for automated regression testing. It’s probably also an example of a use case that may have been thought of but never got enough priority to be implemented.</p>
 <p>One thing I do know: an <code>ORA-00600</code> is a great thing to discover <em>before</em> you promise to deliver some piece of functionality. For now, my code will have to sort through attribute values on the client side.</p></p>
+  			<a href="blog/2010/unhelpful-jsf-error.html"><h1>Unhelpful JSF Error</h1></a>
+  			<p>07 December 2010</p>
+  			<p><p>I certainly haven’t the time to blog about every unhelpful error message I find, especially not when it comes to frameworks. Good error handling is an art, and even the best projects aren’t likely to get it all right. And then there’s JSF. Or, at least, JSF as I’m using it now: the 1.2 API, MyFaces, ICEfaces, all running on Jetspeed 2. I’ve become numb to the bad error messages, mostly. You get used to them after a while, and even start to understand them.</p>
+<p>This particular case had me up until midnight with nothing but frustration to show for it. After a bit of sleep (one of the key elements of software debugging that is often overlooked) it dawned on me what my problem was. Consider the code:</p>
+<pre><code class="java">public class MyBean
+{
+    enum MyEnum {
+        VAR1,
+        VAR2;
+        public String getTitle() {
+            return name().toLowerCase();
+        }
+    }
+    …
+}
+</code></pre>
+<p>And the related facelet markup:</p>
+<blockquote>
+  <p><code>#{myEnumValue.class} is titled &#39;#{myEnumValue.title}&#39;</code></p>
+</blockquote>
+<p>It seemed to be straightforward, but I kept getting this error message:</p>
+<blockquote>
+  <p><code>Property &#39;title&#39; not readable on type java.lang.String</code></p>
+</blockquote>
+<p>And what kept bugging me was the fact that <code>#{myEnumValue.class}</code> worked when it was by itself (it would output <code>MyBean.MyEnum</code>). I could clearly see the class name, and it looked just fine. But as soon as I added in the title property, I would get the error message again. Obviously <code>myEnumValue</code> was not a <code>String</code>, so why does the error message say that it is?</p>
+<p>As it turns out, my <code>Enum</code> wasn’t public, and so apparently the methods on it could not be invoked. Rather than telling me that, the expression evaluator decided to coerce the Enum into a <code>String</code> and then see if the property I wanted was part of the <code>String</code> class. It wasn’t. Here’s the solution:</p>
+<pre><code class="java">public class MyBean
+{
+    public enum MyEnum {
+    …
+    }
+}
+</code></pre>
+<p>So there you have it: one more strange error message deciphered. I hope others will spend less time tracking down these types of errors than I do.</p>
+<p>And the real moral of the story? Well, first, error handling is hard. While string coercion may be a good strategy for this situation, the fallback error message proves unhelpful. Better to capture the message that triggered the fallback and return it instead. Unfortunately, that requires that your error handling strategy can maintain such a message and know when to use it. So a second moral is, be prepared for error handling to get much more complex as your requirements expand.</p>
+<!--
+Beyond that, you’ll have to wait for a future article where I will explain in
+more detail the design flaw that makes this particular error possible. I will
+update this post to point to the new article when it is complete.
+--></p>
   			<a href="blog/2010/dns-aliasing.html"><h1>DNS aliasing: panacea?</h1></a>
   			<p>18 June 2010</p>
   			<p><p>One tool that seems to be underused, at least in most corporations I’ve worked at, is the trusty DNS alias (called a CNAME record). Pretty much everybody understood the value of using DNS names as opposed to IP addresses (with some minor, unmentionably dull exceptions) but it wasn’t until I was at Sprint that I saw use of aliases. Even at that, they were just beginning to make use of them, having built a great many interdependent systems without the use of aliases, which is, as we shall see, problematic for just about everyone. So, from here, I will assume that you, the reader, are not so poorly configured as to have servers directly addressing each other by IP address. If you do, fix that problem first; come back to this when you’re done.</p>
@@ -153,6 +235,94 @@ where
 <p>I should also point out that clients (users) can also benefit from aliasing. If you have hundreds of users connecting to <code>http://swds19/</code> to access an application and you decide to migrate it to <code>http://swdx30/</code>, not only do you have to tell the users, they have to update any bookmarks they have. Any documentation containing this information, such as training materials, would also need to be changed. By using a well-thought-out alias, you protect yourself against change and avoid confusing and frustrating your users. Should you continue to use your standard naming convention to address each server? Absolutely. However, those types of names are for administrators, not for applications, and most certainly not for users. Under my proposed schema, every host should have a minimum of 2 names: a conventional name for sysadmins, and a meaningful alias for an application or its end users.</p>
 <p>By now you must be saying, aren’t there some drawbacks to this? Well, it does mean a little administrative overhead to manage the DNS records. It also means you have to actually think in order to choose good aliases. (Choosing bad ones may come back to haunt you.) Particularly if you have a robust development/QA lifecycle, there may be more administrative work, since you have many more systems to work with. Yes, there is some overhead with this strategy, but I think in most situations it will more than pay for itself over time.</p>
 <p>Remember: choose an alias based on the function the system is intended to perform. It is perfectly fine to have many aliases pointing to the same system. Going back to the database scenario, if we have 15 applications that all use the same database server, yes, that means we would have 15 DNS aliases. It also means we can move any of those 15 databases and the only hard work is dealing with the individual database in question. Change is inevitable, but it doesn’t always have to be painful. Changing CNAME records is pretty easy compared to most alternatives. It’s not a panacea, but it solves a lot of problems before they become problems.</p></p>
+  			<a href="blog/2009/brutalities.html"><h1>Brutalities</h1></a>
+  			<p>22 January 2009</p>
+  			<p><p>An apt summary of my view, provided by Eclipse spell-check.</p>
+<p><img src="/img/brutalities.png" alt="spell check suggests &lsquo;brutalities&rsquo; as a fix for &lsquo;portlets&rsquo; " /></p></p>
+  			<a href="blog/2008/maven-jaxb-and-workarounds.html"><h1>Maven, JAXB, and Workarounds</h1></a>
+  			<p>10 November 2008</p>
+  			<p><p>We’re using Maven 2 at work to build our projects now. One of the projects uses JAXB to manage some XML documents. Well, the JAXB standard doesn’t say anything about how namespaces are handled when marshalling to XML, which means I can’t write XSLT against our output (FAIL). Sun’s JAXB implementation has a way to control namespace output, but it’s non-standard. Even worse, it changed between Java 5.0 and 6.0 (package rename), so code written against 5.0 will fail when running in a newer JVM.</p>
+<p>I’m <a target="_blank"
+href="http://pragmaticintegration.blogspot.com/2007/11/moving-jaxb-20-applications-built-by.html"
+>not the only one</a> who has had this problem, but I think my solution is different than any I’ve seen. It took me a long time to get Maven to cooperate, but I finally got it working. I believe I found a bug in Maven, but I haven’t looked at the source yet to verify it. Maven documentation is extremely lacking when it comes to explaining what’s really going on. Sadly, it’s the best thing out there; the only good thing I can say is Maven 2 is better than the original.</p>
+<p>Here is the Java code and Maven POM excerpts necessary to explain my solution:</p>
+<pre><code class="java">import com.sun.xml.bind.marshaller.NamespacePrefixMapper;
+class PrefixMapper_JDK5 extends NamespacePrefixMapper {
+    @Override
+    public String getPreferredPrefix(String namespaceUri, String suggestion,
+            boolean requirePrefix) {
+        return suggestion;
+    }
+}
+
+//JDK 6 added &quot;internal&quot; to the package naming
+import com.sun.xml.internal.bind.marshaller.NamespacePrefixMapper;
+class PrefixMapper_JDK6 extends NamespacePrefixMapper {
+    @Override
+    public String getPreferredPrefix(String namespaceUri, String suggestion,
+            boolean requirePrefix) {
+        return suggestion;
+    }
+}
+
+public Object getNamespacePrefixMapper() {
+    Object r = null;
+//the mapper classes should be compiled separately before this method
+//is compiled so they match the proper JDK (-source and -target flags)
+    Class[] mapperList = {
+        //first one in list gets priority...
+        PrefixMapper_JDK6.class, PrefixMapper_JDK5.class
+    };
+    try { //there is a better way to implement this... you can figure it out
+        r = mapperList[0].getClass().newInstance();
+    } catch (Exception e) {
+        try {
+            r = mapperList[1].getClass().newInstance();
+        } catch (Exception ex) {}
+    }
+    return r; //null if neither class could be loaded
+}
+</code></pre>
+<pre><code class="xml">&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+    &lt;configuration&gt;
+        &lt;source&gt;1.6&lt;/source&gt;
+        &lt;target&gt;1.6&lt;/target&gt;
+        &lt;excludes&gt;
+            &lt;!-- Maven is buggy here and will not remove the first
+                 exclude line given, so the first one needs to be
+                 bogus. --&gt;
+            &lt;exclude&gt;==MavenBugWorkaround==&lt;/exclude&gt;
+            &lt;exclude&gt;**/PrefixMapper_JDK5.java&lt;/exclude&gt;
+        &lt;/excludes&gt;
+    &lt;/configuration&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;compile&lt;/goal&gt;
+            &lt;/goals&gt;
+            &lt;phase&gt;compile&lt;/phase&gt;
+            &lt;configuration&gt;
+                &lt;source&gt;1.5&lt;/source&gt;
+                &lt;target&gt;1.5&lt;/target&gt;
+                &lt;!-- clears inherited exclude list
+                     (except for 1st element) --&gt;
+                &lt;excludes/&gt;
+                &lt;!-- only uncompiled files will be looked at --&gt;
+                &lt;includes&gt;
+                    &lt;include&gt;**/*.java&lt;/include&gt;
+                &lt;/includes&gt;
+            &lt;/configuration&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;
+</code></pre></p>
+  			<a href="blog/2008/xml.html"><h1>XML</h1></a>
+  			<p>23 October 2008</p>
+  			<p><p>I vote for making XML abuse a crime. People treat it like it’s AI or something – use it and your program magically “understands” things.</p>
+<p>The application I’m calling has an XML format; our company has an XML format – I get to convert back and forth between the two. Our format is infinitely recursive… The business rules engine is XML-based. There are XML config files, schemas, wsdl files, build scripts, repository meta-data, entity mapping specifications, XSLT…</p>
+<p>Someone please bring an end to all this misery. Stop using a document format for everything that’s not a document!</p></p>
 	
 	<hr />
 	

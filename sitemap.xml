@@ -1,43 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://nathansgreen.github.io/about.html</loc>
+        <loc>https://heroicode.github.io/about.html</loc>
         <lastmod>2017-05-01</lastmod>
     </url>
     <url>
-        <loc>https://nathansgreen.github.io/blog/2017/unit-tests-as-experiments.html</loc>
+        <loc>https://heroicode.github.io/blog/2017/unit-tests-as-experiments.html</loc>
         <lastmod>2017-05-11</lastmod>
     </url>
     <url>
-        <loc>https://nathansgreen.github.io/blog/2014/role-based-thinking.html</loc>
+        <loc>https://heroicode.github.io/blog/2014/role-based-thinking.html</loc>
         <lastmod>2014-11-12</lastmod>
     </url>
     <url>
-        <loc>https://nathansgreen.github.io/blog/2014/on-not-being-ignorant.html</loc>
+        <loc>https://heroicode.github.io/blog/2014/on-not-being-ignorant.html</loc>
         <lastmod>2014-11-06</lastmod>
     </url>
     <url>
-        <loc>https://nathansgreen.github.io/blog/2014/push-based-automation.html</loc>
+        <loc>https://heroicode.github.io/blog/2014/push-based-automation.html</loc>
         <lastmod>2014-04-29</lastmod>
     </url>
     <url>
-        <loc>https://nathansgreen.github.io/blog/2013/test-driven-troubleshooting.html</loc>
+        <loc>https://heroicode.github.io/blog/2013/test-driven-troubleshooting.html</loc>
         <lastmod>2013-04-03</lastmod>
     </url>
     <url>
-        <loc>https://nathansgreen.github.io/blog/2012/oracle-xquery-bug.html</loc>
+        <loc>https://heroicode.github.io/blog/2012/improving-cmd-exe.html</loc>
+        <lastmod>2012-08-12</lastmod>
+    </url>
+    <url>
+        <loc>https://heroicode.github.io/blog/2012/oracle-xquery-bug.html</loc>
         <lastmod>2012-02-15</lastmod>
     </url>
     <url>
-        <loc>https://nathansgreen.github.io/blog/2010/dns-aliasing.html</loc>
+        <loc>https://heroicode.github.io/blog/2010/unhelpful-jsf-error.html</loc>
+        <lastmod>2010-12-07</lastmod>
+    </url>
+    <url>
+        <loc>https://heroicode.github.io/blog/2010/dns-aliasing.html</loc>
         <lastmod>2010-06-18</lastmod>
     </url>
     <url>
-        <loc>https://nathansgreen.github.io/architect.html</loc>
+        <loc>https://heroicode.github.io/blog/2009/brutalities.html</loc>
+        <lastmod>2009-01-22</lastmod>
+    </url>
+    <url>
+        <loc>https://heroicode.github.io/blog/2008/maven-jaxb-and-workarounds.html</loc>
+        <lastmod>2008-11-10</lastmod>
+    </url>
+    <url>
+        <loc>https://heroicode.github.io/blog/2008/xml.html</loc>
+        <lastmod>2008-10-23</lastmod>
+    </url>
+    <url>
+        <loc>https://heroicode.github.io/architect.html</loc>
         <lastmod>2017-05-24</lastmod>
     </url>
     <url>
-        <loc>https://nathansgreen.github.io/resume.html</loc>
+        <loc>https://heroicode.github.io/resume.html</loc>
         <lastmod>2017-05-04</lastmod>
     </url>
 </urlset>
