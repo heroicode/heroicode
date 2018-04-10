@@ -15,16 +15,6 @@
     <link href="../../css/base.css" rel="stylesheet">
     <link href="../../css/prettify.css" rel="stylesheet">
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-99754303-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
@@ -36,6 +26,13 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
     <link rel="shortcut icon" href="../../favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../..//apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../..//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../..//favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="../..//safari-pinned-tab.svg" color="#da532c">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
   </head>
   <body onload="prettyPrint()">
     <div id="wrap">
@@ -69,19 +66,19 @@
 
 	<p><em>06 November 2014</em></p>
 
-	<p><p>One of the more surreal events that has happened to me in my many programming jobs was the time I was contacted about a support issue for a web service that I knew almost nothing about. I don’t remember what that issue was, but I do remember how the situation came about.</p>
-<p>I had been working on a web application that displayed search results from a service that was not provided by the application. The search went through another service that had a fairly large database of information, some of which was directly useful to our end users. During development and testing, no performance problems were noted and even in production things seem to be fine when we tested it. As it turns out performance was terrible under load, exactly when our users would need the service.</p>
-<p>We opened a support ticket with the team that owned the service, but were not getting quick responses. So I did some research. I found their source code, got a connection into their test database, and was able to determine the kinds of queries that were needed to support the part of the service that we were using. Within about 15 minutes I was able to determine the cause and propose a solution, and I did so on the support ticket that my team had opened.</p>
-<p>Somehow, the fact that my name was attached to a viable solution on that ticket led someone to believe that I knew something (about that service anyway). In a sense, I did. In the short time I spent examining the internals of that service, I learned several things. First, that I was not the first person to try to track down a performance problem in that system. Second, I would certainly not be the last person to do so. Third, I realized that the service could never do what it was intended to do without being rewritten. Fourth, I realized that the application ownership and support model in use by this particular corporation was pretty dysfunctional. (Well, I knew that before…)</p>
-<p>The reason I started writing about this debacle is that it gave me a way to frame a few thoughts on “not being ignorant.” Because everyone is ignorant about most things (really), it’s worth pointing out that not being ignorant is a very selective thing.</p>
-<p>So what really bothered me about this dysfunctional situation was really an acquiescence to ignorance. Let me cover some examples that are specific to this situation, but keep in mind that they reflect an underlying pattern.</p>
-<blockquote>
-  <p>I don’t know why this SQL statement is slow, but I bet if I keep adding indexes eventually I’ll find one that works (and hopefully remember to delete the indexes that don’t have any value).</p>
-  <p>I want to search this column in a case-insensitive way, so I’ll convert the search value and the column value to the same case in my SELECT statement and assume it will perform well.</p>
-  <p>I know I need to limit the number of results I return to my users, but all I can think to do is have my ORM give me a list and then send back a slice; that should be good enough.</p>
-</blockquote>
-<p>Want to guess what the pattern is? It’s a pain-minimization strategy. It’s like saying, “being ignorant is painful, so I’ll gain just enough knowledge to make the pain go away (temporarily).” Unfortunately, this strategy tends to produce a lot of repetitive variations of the same situation. Hence, I consider it to be a suboptimal lifestyle choice.</p>
-<p>What were the effects of this strategy on the application I’ve been talking about? Obviously performance issues are one: exponential response times under moderate load can never be good. Maintenance costs were another: every performance issue had to be addressed as it was discovered. SLA adherence couldn’t be taken seriously, which in some situations can be a pretty high-stakes risk to take. As the application evolved, the possibility of proactive risk management became impossible, which is a big clue that a re-write is in order.</p>
+	<p><p>One of the more surreal events that has happened to me in my many programming jobs was the time I was contacted about a support issue for a web service that I knew almost nothing about. I don’t remember what that issue was, but I do remember how the situation came about.</p> 
+<p>I had been working on a web application that displayed search results from a service that was not provided by the application. The search went through another service that had a fairly large database of information, some of which was directly useful to our end users. During development and testing, no performance problems were noted and even in production things seem to be fine when we tested it. As it turns out performance was terrible under load, exactly when our users would need the service.</p> 
+<p>We opened a support ticket with the team that owned the service, but were not getting quick responses. So I did some research. I found their source code, got a connection into their test database, and was able to determine the kinds of queries that were needed to support the part of the service that we were using. Within about 15 minutes I was able to determine the cause and propose a solution, and I did so on the support ticket that my team had opened.</p> 
+<p>Somehow, the fact that my name was attached to a viable solution on that ticket led someone to believe that I knew something (about that service anyway). In a sense, I did. In the short time I spent examining the internals of that service, I learned several things. First, that I was not the first person to try to track down a performance problem in that system. Second, I would certainly not be the last person to do so. Third, I realized that the service could never do what it was intended to do without being rewritten. Fourth, I realized that the application ownership and support model in use by this particular corporation was pretty dysfunctional. (Well, I knew that before…)</p> 
+<p>The reason I started writing about this debacle is that it gave me a way to frame a few thoughts on “not being ignorant.” Because everyone is ignorant about most things (really), it’s worth pointing out that not being ignorant is a very selective thing.</p> 
+<p>So what really bothered me about this dysfunctional situation was really an acquiescence to ignorance. Let me cover some examples that are specific to this situation, but keep in mind that they reflect an underlying pattern.</p> 
+<blockquote> 
+ <p>I don’t know why this SQL statement is slow, but I bet if I keep adding indexes eventually I’ll find one that works (and hopefully remember to delete the indexes that don’t have any value).</p> 
+ <p>I want to search this column in a case-insensitive way, so I’ll convert the search value and the column value to the same case in my SELECT statement and assume it will perform well.</p> 
+ <p>I know I need to limit the number of results I return to my users, but all I can think to do is have my ORM give me a list and then send back a slice; that should be good enough.</p> 
+</blockquote> 
+<p>Want to guess what the pattern is? It’s a pain-minimization strategy. It’s like saying, “being ignorant is painful, so I’ll gain just enough knowledge to make the pain go away (temporarily).” Unfortunately, this strategy tends to produce a lot of repetitive variations of the same situation. Hence, I consider it to be a suboptimal lifestyle choice.</p> 
+<p>What were the effects of this strategy on the application I’ve been talking about? Obviously performance issues are one: exponential response times under moderate load can never be good. Maintenance costs were another: every performance issue had to be addressed as it was discovered. SLA adherence couldn’t be taken seriously, which in some situations can be a pretty high-stakes risk to take. As the application evolved, the possibility of proactive risk management became impossible, which is a big clue that a re-write is in order.</p> 
 <p>The opposite of ignorance is knowledge. Finding a better strategy for problem-solving is a valuable piece of knowledge. Don’t underestimate it.</p></p>
 
 	<hr />
@@ -92,7 +89,7 @@
 
     <div id="footer">
       <div class="container">
-        <p class="muted credit">&copy; 2017 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.3.7</a> | Baked with <a href="http://jbake.org">JBake v2.5.1</a></p>
+        <p class="muted credit">&copy; 2017 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.3.7</a> | Baked with <a href="http://jbake.org">JBake v2.6.0</a></p>
       </div>
     </div>
 

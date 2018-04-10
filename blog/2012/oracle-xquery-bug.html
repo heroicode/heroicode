@@ -15,16 +15,6 @@
     <link href="../../css/base.css" rel="stylesheet">
     <link href="../../css/prettify.css" rel="stylesheet">
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-99754303-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
@@ -36,6 +26,13 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
     <link rel="shortcut icon" href="../../favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../..//apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../..//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../..//favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="../..//safari-pinned-tab.svg" color="#da532c">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
   </head>
   <body onload="prettyPrint()">
     <div id="wrap">
@@ -69,28 +66,28 @@
 
 	<p><em>15 February 2012</em></p>
 
-	<p><p>I’ve spent the last 2 weeks on a super-secret project to slice and dice (and search, aggregate, and transform) XML in a Oracle database using the Hibernate ORM tool. Okay, maybe it’s not super-secret, but it is super-fun, and the kind of project that might stir up the world’s tiniest dust cloud of enviousness in perhaps one or two of my peers. Seamlessly querying XML and relational data is definitely useful at times. But I digress…</p>
-<p>I started writing this post because I seem to have found a bug in Oracle’s XQuery support. As I so often do, I tried something just to see what would happen. I was not disappointed, because what happened was interesting. I ran a query like this:</p>
-<pre><code class="sql">select
-    XMLQuery(&#39;fn:distinct-values(/document/parent/child[@name])&#39;
+	<p><p>I’ve spent the last 2 weeks on a super-secret project to slice and dice (and search, aggregate, and transform) XML in a Oracle database using the Hibernate ORM tool. Okay, maybe it’s not super-secret, but it is super-fun, and the kind of project that might stir up the world’s tiniest dust cloud of enviousness in perhaps one or two of my peers. Seamlessly querying XML and relational data is definitely useful at times. But I digress…</p> 
+<p>I started writing this post because I seem to have found a bug in Oracle’s XQuery support. As I so often do, I tried something just to see what would happen. I was not disappointed, because what happened was interesting. I ran a query like this:</p> 
+<pre><code class="language-sql">select
+    XMLQuery('fn:distinct-values(/document/parent/child[@name])'
             passing x.OBJECT_VALUE returning content).getClobVal()
 from
     xmltype_table x
 where
-    XmlExists(&#39;/document/author/name[text() = $name]&#39;
-            passing x.OBJECT_VALUE, &#39;Frederick&#39; as &quot;name&quot;)
+    XmlExists('/document/author/name[text() = $name]'
+            passing x.OBJECT_VALUE, 'Frederick' as "name")
 ;
-</code></pre>
-<p>This query was supposed to return the distinct values found in the attribute name on all elements named <code>child</code> that descend from <code>parent</code> which descends from <code>document</code>. As you can see, I did not get the result I expected:</p>
+</code></pre> 
+<p>This query was supposed to return the distinct values found in the attribute name on all elements named <code>child</code> that descend from <code>parent</code> which descends from <code>document</code>. As you can see, I did not get the result I expected:</p> 
 <pre><code>ORA-00600: internal error code, arguments: [qctcte1], [0], [], [], [], [], [], [], [], [], [], []
-00600. 00000 -  &quot;internal error code, arguments: [%s], [%s], [%s], [%s], [%s], [%s], [%s], [%s]&quot;
+00600. 00000 -  "internal error code, arguments: [%s], [%s], [%s], [%s], [%s], [%s], [%s], [%s]"
 *Cause:    This is the generic internal error number for Oracle program
         exceptions.             This indicates that a process has encountered an
         exceptional condition.
 *Action:   Report as a bug - the first argument is the internal error number
-</code></pre>
-<p>I honestly expected that the query would return a result. I ought to be able to get a set of distinct attribute values, just like I can get a set of distinct element values. At the same time, I also thought that in the worst case I would get a syntax error, or perhaps some other indication that I was attempting to use the query system in an unsupported manner.</p>
-<p>I’ve been working with Oracle databases for 11 years now, and I believe this is the first time I’ve found a real bug. Considering the complexity of the full XQuery specification combined with a relational database engine, bugs are pretty much inevitable. That said, this is a great example of a case for automated regression testing. It’s probably also an example of a use case that may have been thought of but never got enough priority to be implemented.</p>
+</code></pre> 
+<p>I honestly expected that the query would return a result. I ought to be able to get a set of distinct attribute values, just like I can get a set of distinct element values. At the same time, I also thought that in the worst case I would get a syntax error, or perhaps some other indication that I was attempting to use the query system in an unsupported manner.</p> 
+<p>I’ve been working with Oracle databases for 11 years now, and I believe this is the first time I’ve found a real bug. Considering the complexity of the full XQuery specification combined with a relational database engine, bugs are pretty much inevitable. That said, this is a great example of a case for automated regression testing. It’s probably also an example of a use case that may have been thought of but never got enough priority to be implemented.</p> 
 <p>One thing I do know: an <code>ORA-00600</code> is a great thing to discover <em>before</em> you promise to deliver some piece of functionality. For now, my code will have to sort through attribute values on the client side.</p></p>
 
 	<hr />
@@ -101,7 +98,7 @@ where
 
     <div id="footer">
       <div class="container">
-        <p class="muted credit">&copy; 2017 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.3.7</a> | Baked with <a href="http://jbake.org">JBake v2.5.1</a></p>
+        <p class="muted credit">&copy; 2017 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.3.7</a> | Baked with <a href="http://jbake.org">JBake v2.6.0</a></p>
       </div>
     </div>
 

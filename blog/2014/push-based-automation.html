@@ -15,16 +15,6 @@
     <link href="../../css/base.css" rel="stylesheet">
     <link href="../../css/prettify.css" rel="stylesheet">
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-99754303-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
@@ -36,6 +26,13 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
     <link rel="shortcut icon" href="../../favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../..//apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../..//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../..//favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="../..//safari-pinned-tab.svg" color="#da532c">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
   </head>
   <body onload="prettyPrint()">
     <div id="wrap">
@@ -69,10 +66,10 @@
 
 	<p><em>29 April 2014</em></p>
 
-	<p><p>A couple of years ago, I wrote some server automation scripts which I used to remotely manage servers from my laptop. I thought I was being clever and original, since I was only aware of <a target="_blank" href="https://github.com/puppetlabs/puppet">Puppet</a> and <a target="_blank" href="https://www.chef.io/">Chef</a> at the time, and both require the installation of an agent on the remote server. But I recently discovered that <a target="_blank" href="https://github.com/ansible">Ansible</a> and <a target="_blank" href="https://github.com/saltstack">Salt Stack</a> both support push-based automation, so it seems I am not so original after all.</p>
-<p>My scripts supported a number of useful features, so I thought it would be worth writing them down before I forget. It could push files over SSH, by default to <code>/tmp</code>. Once uploaded, a file would be checksummed with MD5 and the script would error out if it didn’t match. I frequently uploaded compressed archives and then expanded them on the server, which was pretty efficient. I had the ability to run the scripts from Windows machines using the tools provided by PuTTY, using batch scripting, PowerShell scripting, or a port of the Bash shell. I had the ability to enter a username and password once and re-use them for multiple commands. (I sent files over SCP with individual calls, so password-reentry was painful when targeting a 9-node cluster.) Password entry was not logged to the console, for security reasons. When different usernames were needed, a password prompt was still provided only once. (In retrospect, the ability to use keys with <code>ssh-agent</code> would have been fantastic, but I had no control over that.) The scripts could also run remote commands to do things like restart application servers and verify or update file permissions. (Some admins were not careful about not using the root user to restart the app servers, which caused a lot of files to become owned by root, and subsequent restarts that were done correctly would fail in strange ways, so permission verification was a big time-saver.)</p>
-<p>The other nice thing about my scripts is that I kept them all versioned in our SCM. Any time I needed to push releases to production, my main task was to enter the correct version number(s) of the components I was pushing, and I could then tag that change permanently in the SCM. Deployments got a lot more boring when this stage was reached, which was really nice. I’m not a sysadmin and don’t really care to be one. Automating the hassles of admin work helps me to stay sane.</p>
-<p>If you actually have decision-making authority, I suggest you do better: invest in real automation tools. Your good developers will be happier. Your not-as-good developers won’t screw things up by accident so easily. (This was all-too-frequent from people I won&rsquo;t name, and cost me a lot of sleep.)</p></p>
+	<p><p>A couple of years ago, I wrote some server automation scripts which I used to remotely manage servers from my laptop. I thought I was being clever and original, since I was only aware of <a target="_blank" href="https://github.com/puppetlabs/puppet">Puppet</a> and <a target="_blank" href="https://www.chef.io/">Chef</a> at the time, and both require the installation of an agent on the remote server. But I recently discovered that <a target="_blank" href="https://github.com/ansible">Ansible</a> and <a target="_blank" href="https://github.com/saltstack">Salt Stack</a> both support push-based automation, so it seems I am not so original after all.</p> 
+<p>My scripts supported a number of useful features, so I thought it would be worth writing them down before I forget. It could push files over SSH, by default to <code>/tmp</code>. Once uploaded, a file would be checksummed with MD5 and the script would error out if it didn’t match. I frequently uploaded compressed archives and then expanded them on the server, which was pretty efficient. I had the ability to run the scripts from Windows machines using the tools provided by PuTTY, using batch scripting, PowerShell scripting, or a port of the Bash shell. I had the ability to enter a username and password once and re-use them for multiple commands. (I sent files over SCP with individual calls, so password-reentry was painful when targeting a 9-node cluster.) Password entry was not logged to the console, for security reasons. When different usernames were needed, a password prompt was still provided only once. (In retrospect, the ability to use keys with <code>ssh-agent</code> would have been fantastic, but I had no control over that.) The scripts could also run remote commands to do things like restart application servers and verify or update file permissions. (Some admins were not careful about not using the root user to restart the app servers, which caused a lot of files to become owned by root, and subsequent restarts that were done correctly would fail in strange ways, so permission verification was a big time-saver.)</p> 
+<p>The other nice thing about my scripts is that I kept them all versioned in our SCM. Any time I needed to push releases to production, my main task was to enter the correct version number(s) of the components I was pushing, and I could then tag that change permanently in the SCM. Deployments got a lot more boring when this stage was reached, which was really nice. I’m not a sysadmin and don’t really care to be one. Automating the hassles of admin work helps me to stay sane.</p> 
+<p>If you actually have decision-making authority, I suggest you do better: invest in real automation tools. Your good developers will be happier. Your not-as-good developers won’t screw things up by accident so easily. (This was all-too-frequent from people I won’t name, and cost me a lot of sleep.)</p></p>
 
 	<hr />
 	
@@ -82,7 +79,7 @@
 
     <div id="footer">
       <div class="container">
-        <p class="muted credit">&copy; 2017 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.3.7</a> | Baked with <a href="http://jbake.org">JBake v2.5.1</a></p>
+        <p class="muted credit">&copy; 2017 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.3.7</a> | Baked with <a href="http://jbake.org">JBake v2.6.0</a></p>
       </div>
     </div>
 

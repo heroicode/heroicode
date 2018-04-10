@@ -15,16 +15,6 @@
     <link href="../../css/base.css" rel="stylesheet">
     <link href="../../css/prettify.css" rel="stylesheet">
 
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-99754303-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
@@ -36,6 +26,13 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
     <link rel="shortcut icon" href="../../favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../..//apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../..//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../..//favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="../..//safari-pinned-tab.svg" color="#da532c">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
   </head>
   <body onload="prettyPrint()">
     <div id="wrap">
@@ -69,10 +66,10 @@
 
 	<p><em>11 May 2017</em></p>
 
-	<p><p>One of the strategies I&rsquo;ve been using lately is creating unit tests when I have a problem that I don&rsquo;t understand fully. It&rsquo;s an easy way to encode a set of assumptions (test fixture setup), try out potential ways of solving a problem, then check whether it worked (assert some expected outcome).</p>
-<p>Since I often work without a REPL (Java 9 will change this), I need easy ways to run programs that are small and malleable. I also work with complex runtimes (magical, auto-configured Spring systems are one of many examples) and it helps to be able to simulate a complex system by setting up test fixtures that manage that complexity while providing direct access to the thing I need to test.</p>
-<p>I find this approach is also helpful when trying to work with an unfamiliar API. Sometimes my mental model of an API&rsquo;s behavior doesn&rsquo;t quite match reality, and a test is usually a quick way to verify an hypothesis about what outcomes I should expect.</p>
-<p>The BDD way of structuring tests fits this approach pretty well. Given some initial conditions, when this thing occurs, then I expect this outcome. The difference is that instead of encoding requirements, I&rsquo;m encoding hypotheses.</p></p>
+	<p><p>One of the strategies I’ve been using lately is creating unit tests when I have a problem that I don’t understand fully. It’s an easy way to encode a set of assumptions (test fixture setup), try out potential ways of solving a problem, then check whether it worked (assert some expected outcome).</p> 
+<p>Since I often work without a REPL (Java 9 will change this), I need easy ways to run programs that are small and malleable. I also work with complex runtimes (magical, auto-configured Spring systems are one of many examples) and it helps to be able to simulate a complex system by setting up test fixtures that manage that complexity while providing direct access to the thing I need to test.</p> 
+<p>I find this approach is also helpful when trying to work with an unfamiliar API. Sometimes my mental model of an API’s behavior doesn’t quite match reality, and a test is usually a quick way to verify an hypothesis about what outcomes I should expect.</p> 
+<p>The BDD way of structuring tests fits this approach pretty well. Given some initial conditions, when this thing occurs, then I expect this outcome. The difference is that instead of encoding requirements, I’m encoding hypotheses.</p></p>
 
 	<hr />
 	
@@ -82,7 +79,7 @@
 
     <div id="footer">
       <div class="container">
-        <p class="muted credit">&copy; 2017 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.3.7</a> | Baked with <a href="http://jbake.org">JBake v2.5.1</a></p>
+        <p class="muted credit">&copy; 2017 | Mixed with <a href="http://getbootstrap.com/">Bootstrap v3.3.7</a> | Baked with <a href="http://jbake.org">JBake v2.6.0</a></p>
       </div>
     </div>
 
