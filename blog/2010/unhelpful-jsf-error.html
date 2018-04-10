@@ -81,13 +81,11 @@
 }
 </code></pre> 
 <p>And the related facelet markup:</p> 
-<blockquote> 
- <p><code>#{myEnumValue.class} is titled '#{myEnumValue.title}'</code></p> 
-</blockquote> 
+<pre><code>#{myEnumValue.class} is titled '#{myEnumValue.title}'
+</code></pre> 
 <p>It seemed to be straightforward, but I kept getting this error message:</p> 
-<blockquote> 
- <p><code>Property 'title' not readable on type java.lang.String</code></p> 
-</blockquote> 
+<pre><code>Property 'title' not readable on type java.lang.String
+</code></pre> 
 <p>And what kept bugging me was the fact that <code>#{myEnumValue.class}</code> worked when it was by itself (it would output <code>MyBean.MyEnum</code>). I could clearly see the class name, and it looked just fine. But as soon as I added in the title property, I would get the error message again. Obviously <code>myEnumValue</code> was not a <code>String</code>, so why does the error message say that it is?</p> 
 <p>As it turns out, my <code>Enum</code> wasn’t public, and so apparently the methods on it could not be invoked. Rather than telling me that, the expression evaluator decided to coerce the Enum into a <code>String</code> and then see if the property I wanted was part of the <code>String</code> class. It wasn’t. Here’s the solution:</p> 
 <pre><code class="language-java">public class MyBean

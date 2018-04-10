@@ -6,8 +6,8 @@
     <atom:link href="https://heroicode.github.io/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Tue, 10 Apr 2018 11:00:59 -0500</pubDate>
-    <lastBuildDate>Tue, 10 Apr 2018 11:00:59 -0500</lastBuildDate>
+    <pubDate>Tue, 10 Apr 2018 11:55:20 -0500</pubDate>
+    <lastBuildDate>Tue, 10 Apr 2018 11:55:20 -0500</lastBuildDate>
 
     <item>
       <title>Unit Tests as Experiments</title>
@@ -170,13 +170,11 @@ where
 }
 &lt;/code&gt;&lt;/pre&gt; 
 &lt;p&gt;And the related facelet markup:&lt;/p&gt; 
-&lt;blockquote&gt; 
- &lt;p&gt;&lt;code&gt;#{myEnumValue.class} is titled &apos;#{myEnumValue.title}&apos;&lt;/code&gt;&lt;/p&gt; 
-&lt;/blockquote&gt; 
+&lt;pre&gt;&lt;code&gt;#{myEnumValue.class} is titled &apos;#{myEnumValue.title}&apos;
+&lt;/code&gt;&lt;/pre&gt; 
 &lt;p&gt;It seemed to be straightforward, but I kept getting this error message:&lt;/p&gt; 
-&lt;blockquote&gt; 
- &lt;p&gt;&lt;code&gt;Property &apos;title&apos; not readable on type java.lang.String&lt;/code&gt;&lt;/p&gt; 
-&lt;/blockquote&gt; 
+&lt;pre&gt;&lt;code&gt;Property &apos;title&apos; not readable on type java.lang.String
+&lt;/code&gt;&lt;/pre&gt; 
 &lt;p&gt;And what kept bugging me was the fact that &lt;code&gt;#{myEnumValue.class}&lt;/code&gt; worked when it was by itself (it would output &lt;code&gt;MyBean.MyEnum&lt;/code&gt;). I could clearly see the class name, and it looked just fine. But as soon as I added in the title property, I would get the error message again. Obviously &lt;code&gt;myEnumValue&lt;/code&gt; was not a &lt;code&gt;String&lt;/code&gt;, so why does the error message say that it is?&lt;/p&gt; 
 &lt;p&gt;As it turns out, my &lt;code&gt;Enum&lt;/code&gt; wasn’t public, and so apparently the methods on it could not be invoked. Rather than telling me that, the expression evaluator decided to coerce the Enum into a &lt;code&gt;String&lt;/code&gt; and then see if the property I wanted was part of the &lt;code&gt;String&lt;/code&gt; class. It wasn’t. Here’s the solution:&lt;/p&gt; 
 &lt;pre&gt;&lt;code class=&quot;language-java&quot;&gt;public class MyBean
